@@ -1,16 +1,27 @@
 import React from 'react'
 import {
-    useRoutes,
+    BrowserRouter as Router,
+    Switch,
+    Route,
 } from "react-router-dom";
+
 
 import HomePage from '../home'
 import GamePage from '../game'
 
 const AppPage = () => {
-    return useRoutes([
-        { path: "/", element: <HomePage /> },
-        { path: "/bingo", element: <GamePage /> }
-    ])
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <HomePage />
+                </Route>
+                <Route exact path="/bingo">
+                    <GamePage />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default AppPage

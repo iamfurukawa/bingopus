@@ -3,55 +3,55 @@ import SquareComponent from '../square'
 
 import styles from './bingoCard.module.scss'
 
-const BingoCardComponent = () => {
-    // <SquareComponent />
-    // <SquareComponent isCenter />
+const BingoCardComponent = ({ people, gameSelected }) => {
     return (
-        <center>
-            <div className={styles.card}>
-                <div className={styles.container}>
+        <>
+            {people &&
+                <div className={styles.card}>
+                    <div className={styles.container}>
 
-                    <div>B</div>
-                    <SquareComponent number={'1'} />
-                    <SquareComponent number={'2'} />
-                    <SquareComponent number={'3'} />
-                    <SquareComponent number={'4'} />
-                    <SquareComponent number={'5'} />
+                        <div>B</div>
+                        <SquareComponent number={people.games[gameSelected][0]} />
+                        <SquareComponent number={people.games[gameSelected][1]} />
+                        <SquareComponent number={people.games[gameSelected][2]} />
+                        <SquareComponent number={people.games[gameSelected][3]} />
+                        <SquareComponent number={people.games[gameSelected][4]} />
 
-                    <div>I</div>
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
+                        <div>I</div>
+                        <SquareComponent number={people.games[gameSelected][5]} />
+                        <SquareComponent number={people.games[gameSelected][6]} />
+                        <SquareComponent number={people.games[gameSelected][7]} />
+                        <SquareComponent number={people.games[gameSelected][8]} />
+                        <SquareComponent number={people.games[gameSelected][9]} />
 
-                    <div>N</div>
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent isCenter />
-                    <SquareComponent />
-                    <SquareComponent />
+                        <div>N</div>
+                        <SquareComponent number={people.games[gameSelected][10]} />
+                        <SquareComponent number={people.games[gameSelected][11]} />
+                        <SquareComponent isCenter />
+                        <SquareComponent number={people.games[gameSelected][12]} />
+                        <SquareComponent number={people.games[gameSelected][13]} />
 
-                    <div>G</div>
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
+                        <div>G</div>
+                        <SquareComponent number={people.games[gameSelected][14]} />
+                        <SquareComponent number={people.games[gameSelected][15]} />
+                        <SquareComponent number={people.games[gameSelected][16]} />
+                        <SquareComponent number={people.games[gameSelected][17]} />
+                        <SquareComponent number={people.games[gameSelected][18]} />
 
-                    <div>O</div>
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
+                        <div>O</div>
+                        <SquareComponent number={people.games[gameSelected][19]} />
+                        <SquareComponent number={people.games[gameSelected][20]} />
+                        <SquareComponent number={people.games[gameSelected][21]} />
+                        <SquareComponent number={people.games[gameSelected][22]} />
+                        <SquareComponent number={people.games[gameSelected][23]} />
+                    </div>
+                    <div className={styles.footer}>
+                        <span>{people.name}</span>
+                        <span>Jogo {gameSelected}</span>
+                    </div>
                 </div>
-                <div className={styles.footer}>
-                    <span>Vinícius Furukawa Caralho</span>
-                    <span>Jogo 1</span>
-                </div>
-            </div>
-        </center>
+            }
+        </>
     )
 }
 

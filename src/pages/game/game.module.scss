@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+    
+    height: 100vh;
+}
+
+.radios {
+    margin: 1.5rem 0;
+}
