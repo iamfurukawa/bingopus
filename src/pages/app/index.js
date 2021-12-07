@@ -3,11 +3,13 @@ import {
     useRoutes,
 } from "react-router-dom";
 
+import HomePage from '../home'
 import GamePage from '../game'
 
 const AppPage = () => {
     return useRoutes([
-        { path: "/game", element: <GamePage /> }
+        { path: "/", element: <HomePage /> },
+        { path: "/bingo", element: <GamePage /> }
     ])
 }
 

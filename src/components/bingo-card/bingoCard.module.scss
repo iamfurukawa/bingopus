@@ -1,12 +1,35 @@
 .card {
-  display: flex;
-  background-color: black;
   width: fit-content;
+  height: fit-content;
 }
 
-.title {
-  display: flex;
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-auto-flow: column;
+  column-gap: 1px;
+  row-gap: 1px;
+
+  justify-items: center;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+
+  background-color: pink;
+  font-size: 24px;
+
+  height: 605px;
+  width: 504px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: pink;
+
+  padding: 0 20px;
+  box-sizing: border-box;
+  
+  height: 30px;
 }

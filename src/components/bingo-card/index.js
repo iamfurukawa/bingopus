@@ -4,47 +4,54 @@ import SquareComponent from '../square'
 import styles from './bingoCard.module.scss'
 
 const BingoCardComponent = () => {
+    // <SquareComponent />
+    // <SquareComponent isCenter />
     return (
-        <div className={styles.title}>
-            <h1>Bingo da Opus!</h1>
+        <center>
             <div className={styles.card}>
-                <div>
+                <div className={styles.container}>
+
+                    <div>B</div>
+                    <SquareComponent number={'1'} />
+                    <SquareComponent number={'2'} />
+                    <SquareComponent number={'3'} />
+                    <SquareComponent number={'4'} />
+                    <SquareComponent number={'5'} />
+
+                    <div>I</div>
                     <SquareComponent />
                     <SquareComponent />
                     <SquareComponent />
                     <SquareComponent />
                     <SquareComponent />
-                </div>
-                <div>
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                </div>
-                <div>
+
+                    <div>N</div>
                     <SquareComponent />
                     <SquareComponent />
                     <SquareComponent isCenter />
                     <SquareComponent />
                     <SquareComponent />
-                </div>
-                <div>
+
+                    <div>G</div>
+                    <SquareComponent />
+                    <SquareComponent />
+                    <SquareComponent />
+                    <SquareComponent />
+                    <SquareComponent />
+
+                    <div>O</div>
                     <SquareComponent />
                     <SquareComponent />
                     <SquareComponent />
                     <SquareComponent />
                     <SquareComponent />
                 </div>
-                <div>
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
-                    <SquareComponent />
+                <div className={styles.footer}>
+                    <span>Vinícius Furukawa Caralho</span>
+                    <span>Jogo 1</span>
                 </div>
             </div>
-        </div>
+        </center>
     )
 }
 
