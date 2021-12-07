@@ -1,0 +1,25 @@
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square {
+  @include center;
+
+  background-color: #FEFDE6;
+  width: 100px;
+  height: 100px;
+
+  margin: 1px;
+}
+
+.marked {
+  @include center;
+
+  background-color: #dddddd;
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+}

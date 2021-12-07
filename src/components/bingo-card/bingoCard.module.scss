@@ -1,0 +1,12 @@
+.card {
+  display: flex;
+  background-color: black;
+  width: fit-content;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
