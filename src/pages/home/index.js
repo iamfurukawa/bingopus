@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import MaskedInput from 'antd-mask-input'
 import { Button, Form, message } from 'antd'
@@ -24,6 +24,7 @@ const HomePage = () => {
                 name: snap.data().nome,
                 games: snap.data().games,
             })
+            message.destroy()
             history.push('/bingo')
         } catch (e) {
             console.log(e)
@@ -31,27 +32,40 @@ const HomePage = () => {
         }
     }
 
-    return (
-        <Form
-            name="basic"
-            labelCol={{ span: 3 }}
-            wrapperCol={{ span: 3 }}
-            initialValues={{ remember: true }}
-        >
-            <Form.Item
-                label="Insira seu CPF"
-                name="cpf"
-                rules={[{ required: true, message: 'Por favor preencha com o seu CPF!' }]}
-            >
-                <MaskedInput mask="111.111.111-11" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
-            </Form.Item >
+    const peopleStored = localStorageService.getPeople()
+    if (peopleStored !== null) history.push("/bingo")
 
-            <Form.Item wrapperCol={{ offset: 5, span: 3 }}>
+    return (
+        <div className={styles.container}>
+            <div className={styles.containerLeft}>
+                <h1>Bingopus.</h1>
+            </div>
+
+            <Form
+                name="basic"
+                layout="vertical"
+                initialValues={{ remember: true }}
+                className={styles.containerRight}
+            >
+                <div className={styles.header}>
+                    <h1>Olá</h1>
+                    <h2>Bem-vindo ao bingo da Opus.</h2>
+                </div>
+
+                <Form.Item
+                    label="CPF"
+                    name="cpf"
+                    rules={[{ required: true, message: 'Por favor preencha com o seu CPF!' }]}
+                >
+                    <MaskedInput mask="111.111.111-11" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
+                </Form.Item >
+
                 <Button type="primary" htmlType="submit" onClick={play}>
-                    Jogar!
+                    Entrar
                 </Button>
-            </Form.Item>
-        </Form>
+            </Form>
+        </div>
+
     )
 }
 

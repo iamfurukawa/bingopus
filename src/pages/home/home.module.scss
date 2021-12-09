@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+
+    height: 100%;
+    width: 100%;
+}
+
+.containerLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 70%;
+    background-color: #0085FF;
+
+    h1 {
+        font-size: 64px;
+        font-weight: 800;
+        color: #F7FBFF;
+    }
+}
+
+.containerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    width: 30%;
+
+    padding: 50px !important;
+
+    color: #404F5D;
+
+    .header {
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+    
+        h2 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+}

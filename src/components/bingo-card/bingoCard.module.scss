@@ -14,11 +14,12 @@
   justify-items: center;
   align-items: center;
 
-  background-color: pink;
+  background-color: #0085FF;
   font-size: 24px;
 
   height: 605px;
   width: 504px;
+  border-radius: 10px;
 }
 
 .footer {
@@ -26,10 +27,23 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: pink;
+  background-color: #0085FF;
 
   padding: 0 20px;
   box-sizing: border-box;
   
   height: 30px;
+  border-radius: 0 0 10px 10px;
+
+  span {
+    font-weight: 500;
+    font-size: 16px;
+    color: #F7FBFF;
+  }
+}
+
+.letters {
+    font-weight: 900;
+    font-size: 32px;
+    color: #F7FBFF;
 }

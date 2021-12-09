@@ -1,13 +1,20 @@
+h2 {
+    color: #0085FF !important;
+    font-size: 32px;
+    font-weight: bold !important;
+    padding: 20px;
+}
+
 .container {
     display: flex;
 
     flex-flow: column;
     justify-items: center;
     align-items: center;
-    
-    height: 100vh;
-}
 
-.radios {
-    margin: 1.5rem 0;
+    height: 100vh;
+
+    .radios {
+        margin: 1.5rem 0;
+    }
 }

@@ -8,6 +8,7 @@ import {
 
 import HomePage from '../home'
 import GamePage from '../game'
+import AdminPage from '../admin';
 
 const AppPage = () => {
     return (
@@ -18,6 +19,9 @@ const AppPage = () => {
                 </Route>
                 <Route exact path="/bingo">
                     <GamePage />
+                </Route>
+                <Route exact path="/admin">
+                    <AdminPage />
                 </Route>
             </Switch>
         </Router>
