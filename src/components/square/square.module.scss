@@ -8,28 +8,27 @@
   font-weight: 700;
 
   cursor: pointer;
+  color: white;
 }
 
 .square {
   @include center;
 
-  background-color: #f7fbff;
+  background-color: rgba(255, 255, 255, .2);
   width: 100px;
   height: 100px;
+
+  border-radius: 0.3rem;
 }
 
 .marked {
   @include center;
 
-  background-image: url(./mark.png);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: rgba(235, 17, 162, .8);
 
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   transition: background-color ease-in-out 200ms;
-
-  color: #f7fbff;
 
   border-radius: 50%;
 }

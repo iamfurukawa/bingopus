@@ -1,20 +1,25 @@
-h2 {
-    color: #0085FF !important;
-    font-size: 32px;
-    font-weight: bold !important;
-    padding: 20px;
-}
+.content {
+    width: auto;
+    height: auto;
 
-.container {
-    display: flex;
+    background-image: url(./background.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-    flex-flow: column;
-    justify-items: center;
-    align-items: center;
+    .container {
+        display: flex;
 
-    height: 100vh;
+        flex-flow: column;
+        justify-items: center;
+        align-items: center;
 
-    .radios {
-        margin: 1.5rem 0;
+        width: 100%;
+        height: 100%;
+
+        .padding {
+            padding: 15px;
+        }
     }
 }

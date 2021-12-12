@@ -5,8 +5,8 @@ import {
 } from "react-router-dom";
 
 import AppPage from './pages/app';
-import './index.css';
 import 'antd/dist/antd.css';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>

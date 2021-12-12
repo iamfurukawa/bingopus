@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import styles from './square.module.scss'
 
 import Logo from './opus-logo.png'
-import Mark from './mark.png'
 
 const SquareComponent = ({ number = '1', isCenter = false }) => {
 
@@ -14,7 +13,7 @@ const SquareComponent = ({ number = '1', isCenter = false }) => {
             
             <div className={isClicked && isCenter === false ? styles.marked : ""} onClick={() => setClick(!isClicked)}>
                 {
-                    isCenter ? <img src={Logo} width={90} height={90} alt="Opus Logo" /> : number
+                    isCenter ? <img src={Logo} width={50} height={50} alt="Opus Logo" /> : number
                 }
             </div>
         </div>

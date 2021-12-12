@@ -23,14 +23,13 @@ const GamePage = () => {
     if (peopleStored === null) history.push("/")
 
     return (
-        <div>
+        <div className={styles.content}>
             {people &&
                 <>
-                <h2>Bingopus.</h2>
                     <div className={styles.container}>
-                        <div className={styles.radios}>
-                            <Radio.Group defaultValue="1" buttonStyle="solid" onChange={(e) => setGameSelected(e.target.value)}>
-                                {Object.keys(people.games).map((v) => <Radio.Button value={v}>{`Jogo ` + (v)}</Radio.Button>)}
+                        <div className={styles.padding}>
+                            <Radio.Group defaultValue="1" buttonStyle="outlined" onChange={(e) => setGameSelected(e.target.value)}>
+                                {Object.keys(people.games).map((v) => <Radio.Button  value={v}>{`Jogo ` + (v)}</Radio.Button>)}
                             </Radio.Group>
                         </div>
                         <BingoCardComponent people={people} gameSelected={gameSelected} />
