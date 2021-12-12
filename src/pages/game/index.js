@@ -11,7 +11,7 @@ import styles from './game.module.scss'
 
 const GamePage = () => {
 
-    const history = useHistory();
+    const history = useHistory()
     const peopleStored = localStorageService.getPeople()
 
     const [gameSelected, setGameSelected] = useState(1)

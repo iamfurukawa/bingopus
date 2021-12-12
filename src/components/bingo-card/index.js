@@ -1,9 +1,19 @@
 import React from 'react'
+import { useHistory } from 'react-router';
+import { Button } from 'antd';
+
 import SquareComponent from '../square'
 
 import styles from './bingoCard.module.scss'
 
 const BingoCardComponent = ({ people, gameSelected }) => {
+
+    const history = useHistory()
+
+    const exit = () => {
+        history.push('/logout')
+    }
+
     return (
         <>
             {people &&
@@ -47,6 +57,9 @@ const BingoCardComponent = ({ people, gameSelected }) => {
                     </div>
                     <div className={styles.footer}>
                         <span>{people.name}</span>
+                        <Button type="danger" danger ghost onClick={exit}>
+                            Sair
+                        </Button>
                     </div>
                 </div>
             }

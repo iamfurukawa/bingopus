@@ -10,6 +10,10 @@ const LocalStorageService = () => {
     return peopleStr ? JSON.parse(peopleStr).people : null;
   };
 
+  const removePeople = () => {
+    localStorage.removeItem('people');
+  };
+
   const saveClicks = (clickList, gameNumber) => {
     const clickListStr = JSON.stringify({ clickList });
     localStorage.setItem(`clicks_${gameNumber}`, clickListStr);
@@ -20,12 +24,12 @@ const LocalStorageService = () => {
     return clickListStr ? JSON.parse(clickListStr).clickList : null;
   };
 
-  const saveVersion = (version) => {
+  const saveServerVersion = (version) => {
     const versionStr = JSON.stringify({ version });
     localStorage.setItem('versionStr', versionStr);
   };
 
-  const getVersion = () => {
+  const getServerVersion = () => {
     const versionStr = localStorage.getItem('version');
     return versionStr ? JSON.parse(versionStr).version : null;
   };
@@ -33,12 +37,13 @@ const LocalStorageService = () => {
   return {
     savePeople,
     getPeople,
+    removePeople,
 
     saveClicks,
     getClicks,
 
-    saveVersion,
-    getVersion,
+    saveServerVersion,
+    getServerVersion,
   };
 };
 
