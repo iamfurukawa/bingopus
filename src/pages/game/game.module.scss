@@ -1,15 +1,19 @@
 .content {
-    width: auto;
-    height: auto;
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
 
     background-image: url(./background.png);
-    background-size: cover;
+    background-size: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
     .container {
         display: flex;
+
+        overflow-y: auto;
 
         flex-flow: column;
         justify-items: center;

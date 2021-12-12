@@ -26,20 +26,20 @@ const GamePage = () => {
     console.log("Front Version: " + VersionService.getFrontVersion())
 
     return (
-        <div className={styles.content}>
+        <>
             {people &&
-                <>
+                <div className={styles.content}>
                     <div className={styles.container}>
                         <div className={styles.padding}>
                             <Radio.Group defaultValue="1" buttonStyle="outlined" onChange={(e) => setGameSelected(e.target.value)}>
-                                {Object.keys(people.games).map((v) => <Radio.Button  value={v}>{`Jogo ` + (v)}</Radio.Button>)}
+                                {Object.keys(people.games).map((v) => <Radio.Button value={v}>{`Jogo ` + (v)}</Radio.Button>)}
                             </Radio.Group>
                         </div>
                         <BingoCardComponent people={people} gameSelected={gameSelected} />
                     </div>
-                </>
+                </div>
             }
-        </div>
+        </>
     )
 }
 
