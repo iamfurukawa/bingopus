@@ -5,6 +5,7 @@ import { Radio } from 'antd';
 import BingoCardComponent from '../../components/bingo-card'
 
 import localStorageService from '../../services/local-storage/local-storage-service'
+import VersionService from '../../services/version/version-service'
 
 import styles from './game.module.scss'
 
@@ -21,6 +22,8 @@ const GamePage = () => {
     }, [])
 
     if (peopleStored === null) history.push("/")
+
+    console.log("Front Version: " + VersionService.getFrontVersion())
 
     return (
         <div className={styles.content}>
