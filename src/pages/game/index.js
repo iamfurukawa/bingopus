@@ -8,9 +8,11 @@ import localStorageService from '../../services/local-storage/local-storage-serv
 import VersionService from '../../services/version/version-service'
 
 import styles from './game.module.scss'
+import versionService from '../../services/version/version-service';
 
 const GamePage = () => {
-
+    versionService.frontValidation()
+    
     const history = useHistory()
     const peopleStored = localStorageService.getPeople()
 
@@ -22,8 +24,6 @@ const GamePage = () => {
     }, [])
 
     if (peopleStored === null) history.push("/login")
-
-    console.log("Front Version: " + VersionService.getFrontVersion())
 
     return (
         <>

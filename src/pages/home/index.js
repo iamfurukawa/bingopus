@@ -20,14 +20,17 @@ import Shape7 from './images/shape-7.png'
 import Shape8 from './images/shape-8.png'
 import Shape81 from './images/shape-81.png'
 import Shape9 from './images/shape-9.png'
+import versionService from '../../services/version/version-service'
 
 var md5 = require('md5')
 
 const HomePage = () => {
+    
+    versionService.frontValidation()
 
     const [cpfData, setCpfData] = useState("")
     const key = 'myUniqueKey'
-    const history = useHistory();
+    const history = useHistory()
 
     const play = async () => {
         message.loading({ content: 'Logando...', key });
