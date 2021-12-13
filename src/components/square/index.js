@@ -9,6 +9,10 @@ import Logo from './opus-logo.png'
 const SquareComponent = ({ number = '1', isCenter = false, onClickAction = () => { }, initMark = false }) => {
     const [isClicked, setClick] = useState(initMark)
 
+    useEffect(() => { 
+        setClick(initMark)
+    }, [initMark])
+
     var debMark = _.debounce(() => {
         setClick(!isClicked)
         onClickAction()
