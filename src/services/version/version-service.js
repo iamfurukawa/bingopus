@@ -9,9 +9,13 @@ const VersionService = () => {
     const frontValidation = () => {
         const deployedVersion = getFrontVersion()
         if (deployedVersion !== localStorageService.getFrontVersion()) {
-            localStorage.clear()
-            localStorageService.saveFrontVersion(deployedVersion)
+            clearAndSave(deployedVersion)
         }
+    }
+
+    const clearAndSave = (deployedVersion) => {
+        localStorage.clear()
+        localStorageService.saveFrontVersion(deployedVersion)
     }
 
     return {
