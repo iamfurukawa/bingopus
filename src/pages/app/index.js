@@ -16,10 +16,10 @@ const AppPage = () => {
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <HomePage />
-                </Route>
-                <Route exact path="/bingo">
                     <GamePage />
+                </Route>
+                <Route exact path="/login">
+                    <HomePage />
                 </Route>
                 <Route exact path="/admin">
                     <AdminPage />

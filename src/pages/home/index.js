@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import MaskedInput from 'antd-mask-input'
 import { Button, Form, message } from 'antd'
@@ -21,6 +21,8 @@ import Shape8 from './images/shape-8.png'
 import Shape81 from './images/shape-81.png'
 import Shape9 from './images/shape-9.png'
 
+var md5 = require('md5')
+
 const HomePage = () => {
 
     const [cpfData, setCpfData] = useState("")
@@ -32,13 +34,14 @@ const HomePage = () => {
         try {
             let cpf = cpfData.replace(/\./g, '').replace(/\-/g, '')
             let snap = await firebaseFirestoreService.getByCpf(cpf)
+
             localStorageService.savePeople({
-                cpf: snap.id,
+                cpf: md5(snap.id),
                 name: snap.data().nome,
                 games: snap.data().games,
             })
             message.destroy()
-            history.push('/bingo')
+            history.push('/')
         } catch (e) {
             console.log(e)
             message.error({ content: 'Falha ao logar :(', key, duration: 3 });
@@ -46,7 +49,7 @@ const HomePage = () => {
     }
 
     const peopleStored = localStorageService.getPeople()
-    if (peopleStored !== null) history.push("/bingo")
+    if (peopleStored !== null) history.push("/")
 
     return (
         <div className={styles.container}>

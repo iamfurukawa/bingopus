@@ -21,13 +21,13 @@ const GamePage = () => {
         setPeople(peopleStored)
     }, [])
 
-    if (peopleStored === null) history.push("/")
+    if (peopleStored === null) history.push("/login")
 
     console.log("Front Version: " + VersionService.getFrontVersion())
 
     return (
         <>
-            {people &&
+            {people && gameSelected &&
                 <div className={styles.content}>
                     <div className={styles.container}>
                         <div className={styles.padding}>

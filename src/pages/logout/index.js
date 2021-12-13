@@ -7,7 +7,7 @@ const LogoutPage = () => {
     const history = useHistory()
     localStorageService.removePeople()
 
-    history.push('/')
+    history.push('/login')
 
     return (
         <div>Saindo...</div>

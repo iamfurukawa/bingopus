@@ -1,22 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+import _ from 'lodash'
 
 import styles from './square.module.scss'
 
 import Logo from './opus-logo.png'
 
-const SquareComponent = ({ number = '1', isCenter = false }) => {
+const SquareComponent = ({ number = '1', isCenter = false, onClickAction = () => { }, initMark = false }) => {
+    const [isClicked, setClick] = useState(initMark)
 
-    const [isClicked, setClick] = useState(false)
+    var debMark = _.debounce(() => {
+        setClick(!isClicked)
+        onClickAction()
+    }, 50)
 
     return (
-        <div className={styles.square} onClick={() => setClick(!isClicked)}>
-            
-            <div className={isClicked && isCenter === false ? styles.marked : ""} onClick={() => setClick(!isClicked)}>
+        <div className={styles.square} onClick={debMark}>
+            <div className={isClicked && isCenter === false ? styles.marked : ""} onClick={debMark}>
                 {
                     isCenter ? <img src={Logo} width={50} height={50} alt="Opus Logo" /> : number
                 }
             </div>
-        </div>
+        </div >
     )
 }
 

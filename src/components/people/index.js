@@ -31,7 +31,7 @@ const PeopleComponent = () => {
   ];
 
   function onChange(pagination, filters, sorter, extra) {
-    console.log('params', pagination, filters, sorter, extra);
+    //console.log('params', pagination, filters, sorter, extra);
   }
 
 

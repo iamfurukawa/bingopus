@@ -14,14 +14,14 @@ const LocalStorageService = () => {
     localStorage.removeItem('people');
   };
 
-  const saveClicks = (clickList, gameNumber) => {
-    const clickListStr = JSON.stringify({ clickList });
-    localStorage.setItem(`clicks_${gameNumber}`, clickListStr);
+  const saveGame = (gameNumber, gameList) => {
+    const gameListStr = JSON.stringify({ gameList });
+    localStorage.setItem(`games_${gameNumber}`, gameListStr);
   };
 
-  const getClicks = (gameNumber) => {
-    const clickListStr = localStorage.getItem(`clicks_${gameNumber}`);
-    return clickListStr ? JSON.parse(clickListStr).clickList : null;
+  const getGame = (gameNumber) => {
+    const gameListStr = localStorage.getItem(`games_${gameNumber}`);
+    return gameListStr ? JSON.parse(gameListStr).gameList : null;
   };
 
   const saveServerVersion = (version) => {
@@ -39,8 +39,8 @@ const LocalStorageService = () => {
     getPeople,
     removePeople,
 
-    saveClicks,
-    getClicks,
+    saveGame,
+    getGame,
 
     saveServerVersion,
     getServerVersion,
