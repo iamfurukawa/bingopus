@@ -130,3 +130,4 @@ def createData():
 # If you need create a specific game (1, 2, 3...) you need change getAllOfFirebase index too.
 # This function validade if the game is repeated.
 #newSingleGame('fulano', '123456789')
+
