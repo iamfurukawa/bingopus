@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect,
 } from "react-router-dom";
 
 
@@ -27,6 +28,7 @@ const AppPage = () => {
                 <Route exact path="/logout">
                     <LogoutPage />
                 </Route>
+                <Redirect to="/" />
             </Switch>
         </Router>
     );
