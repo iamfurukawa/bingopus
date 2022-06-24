@@ -21,11 +21,12 @@ import Shape8 from './images/shape-8.png'
 import Shape81 from './images/shape-81.png'
 import Shape9 from './images/shape-9.png'
 import versionService from '../../services/version/version-service'
+import Column from 'antd/lib/table/Column'
 
 var md5 = require('md5')
 
 const HomePage = () => {
-    
+
     versionService.frontValidation()
 
     const [cpfData, setCpfData] = useState("")
@@ -85,13 +86,17 @@ const HomePage = () => {
                     <h2>Bem-vindo ao bingo da Opus.</h2>
                 </div>
 
-                <Form.Item
-                    label="CPF"
-                    name="cpf"
-                    rules={[{ required: true, message: 'Por favor preencha com o seu CPF!' }]}
+                <Form
+                layout={null}
                 >
-                    <MaskedInput mask="111.111.111-11" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
-                </Form.Item >
+                    <Form.Item
+                        name="cpf"
+                        label={<label className={styles.label}>CPF</label>}
+                        rules={[{ required: true, message: 'Por favor preencha com o seu CPF!' }]}
+                    >
+                        <MaskedInput mask="111.111.111-11" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
+                    </Form.Item >
+                </Form>
 
                 <Button type="primary" htmlType="submit" onClick={play}>
                     Entrar
