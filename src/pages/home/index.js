@@ -94,7 +94,7 @@ const HomePage = () => {
                         label={<label className={styles.label}>CPF</label>}
                         rules={[{ required: true, message: 'Por favor preencha com o seu CPF!' }]}
                     >
-                        <MaskedInput mask="111.111.111-11" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
+                        <MaskedInput mask="111.111.111-11" inputmode="numeric" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
                     </Form.Item >
                 </Form>
 
