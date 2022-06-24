@@ -22,7 +22,7 @@ const SquareComponent = ({ number = '1', isCenter = false, onClickAction = () =>
         <div className={styles.square} onClick={debMark}>
             <div className={isClicked && isCenter === false ? styles.marked : ""} onClick={debMark}>
                 {
-                    isCenter ? <img src={Logo} width={50} height={50} alt="Opus Logo" /> : number
+                    isCenter ? <img src={Logo} width={40} height={40} alt="Opus Logo" /> : number
                 }
             </div>
         </div >

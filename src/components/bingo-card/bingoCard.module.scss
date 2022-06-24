@@ -1,12 +1,35 @@
 .card {
-  width: fit-content;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
 
   box-shadow: 10px 0px 30px;
-  border: 1px solid rgba(331, 80, 57, .2);
+  border: 1px solid rgba(331, 80, 57, 0.2);
 
   margin-bottom: 30px;
   border-radius: 10px;
+
+  @media only screen and (max-width: 400px) {
+    max-height: 450px;
+    max-width: 340px;
+  }
+
+  @media only screen and (min-width: 400px) {
+    max-height: 470px;
+    max-width: 360px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-height: 500px;
+    max-width: 400px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    max-height: 550px;
+    max-width: 450px;
+  }
 
   .container {
     display: grid;
@@ -19,11 +42,17 @@
     align-items: center;
 
     background-color: transparent;
-    
+
     font-size: 24px;
 
-    height: 620px;
-    width: 516px;
+    width: 100%;
+    height: 100%;
+
+    min-height: 340px;
+    min-width: 300px;
+
+    max-height: 620px;
+    max-width: 516px;
 
     .letters {
       font-weight: 900;
@@ -40,9 +69,9 @@
 
     background-color: transparent;
 
-    padding: 0 20px;
+    padding: 0 10px;
 
-    height: 50px;
+    height: 60px;
 
     span {
       font-weight: 500;

@@ -22,6 +22,8 @@ const BingoCardComponent = ({ people, gameSelected }) => {
     const getGame = (idx) => people.games[gameSelected][idx]
     const keyGen = (idx) => gameSelected + '_' + getGame(idx)
 
+    const getName = () => people.name.length > 26 ?  people.name.substring(0, 26 - 3) + "..." : people.name
+
     return (
         <div className={styles.card}>
             <div className={styles.container}>
@@ -62,7 +64,7 @@ const BingoCardComponent = ({ people, gameSelected }) => {
                 <SquareComponent key={keyGen(23)} number={getGame(23)} onClickAction={() => updateGame(23)} initMark={gameMark[23]} />
             </div>
             <div className={styles.footer}>
-                <span>{people.name}</span>
+                <span>{getName()}</span>
                 <Button type="danger" danger ghost onClick={exit}>
                     Sair
                 </Button>
