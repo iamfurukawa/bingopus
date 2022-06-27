@@ -1,33 +1,56 @@
 .card {
-    width: fit-content;
-    height: fit-content;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-auto-flow: column;
-    column-gap: 1px;
-    row-gap: 1px;
-
-    justify-items: center;
-    align-items: center;
-
-    background-color: pink;
-    font-size: 24px;
-
-    height: 504px;
-    width: 1714px;
-}
-
-.square {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100px;
-    width: 100px;
-
-    font-weight: bold;
+    flex-direction: column;
+  
+    width: 100%;
+    height: 100%;
+  
+    box-shadow: 10px 0px 30px;
+    border: 1px solid rgba(331, 80, 57, 0.2);
+  
+    border-radius: 10px;
+  
+    @media only screen and (max-width: 400px) {
+      max-width: 340px;
+    }
+  
+    @media only screen and (min-width: 400px) {
+      max-width: 360px;
+    }
+  
+    @media only screen and (min-width: 768px) {
+      max-width: 400px;
+    }
+  
+    @media only screen and (min-width: 992px) {
+      max-width: 450px;
+    }
+  
+    .container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(17, 1fr);
+      grid-auto-flow: column;
+      gap: 4px;
+  
+      justify-items: center;
+      align-items: center;
+  
+      background-color: transparent;
+  
+      font-size: 24px;
+  
+      width: 100%;
+      height: 100%;
+  
+      min-width: 300px;
+      max-width: 516px;
+  
+      .letters {
+        font-weight: 900;
+        font-size: 32px;
+        color: white;
+        opacity: 0.6;
+      }
+    }
 }

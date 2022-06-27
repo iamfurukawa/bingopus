@@ -40,6 +40,7 @@ const PeopleComponent = () => {
       columns={columns}
       dataSource={data}
       onChange={onChange}
+      className={styles.table}
       pagination={{ position: ['none', 'none'] }}
       onRow={(record, rowIndex) => {
         return {

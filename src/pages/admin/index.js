@@ -8,10 +8,10 @@ import styles from './admin.module.scss'
 const AdminPage = () => {
 
     return (
-        <center>
+        <div className={styles.container}>
             <BoardComponent />
             <PeopleComponent />
-        </center>
+        </div>
     )
 }
 
