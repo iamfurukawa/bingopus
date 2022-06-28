@@ -8,20 +8,7 @@ import firebaseFirestoreService from '../../services/firebase/firebase-firestore
 
 import styles from './home.module.scss'
 
-import LogoOpenMind from './images/Logo-openmind.png'
-import LogoOpus from './images/Logo-opus.png'
-import Shape1 from './images/shape-1.png'
-import Shape2 from './images/shape-2.png'
-import Shape3 from './images/shape-3.png'
-import Shape4 from './images/shape-4.png'
-import Shape5 from './images/shape-5.png'
-import Shape6 from './images/shape-6.png'
-import Shape7 from './images/shape-7.png'
-import Shape8 from './images/shape-8.png'
-import Shape81 from './images/shape-81.png'
-import Shape9 from './images/shape-9.png'
 import versionService from '../../services/version/version-service'
-import Column from 'antd/lib/table/Column'
 
 var md5 = require('md5')
 
@@ -58,21 +45,6 @@ const HomePage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.containerLeft}>
-                <img id={styles.openMind} src={LogoOpenMind} alt="logo-openmind" />
-                <img id={styles.opusLogo} src={LogoOpus} alt="logo opus" />
-                <img id={styles.shape1} src={Shape1} alt="forma abstrata" />
-                <img id={styles.shape2} src={Shape2} alt="forma abstrata" />
-                <img id={styles.shape3} src={Shape3} alt="forma abstrata" />
-                <img id={styles.shape4} src={Shape4} alt="forma abstrata" />
-                <img id={styles.shape5} src={Shape5} alt="forma abstrata" />
-                <img id={styles.shape6} src={Shape6} alt="forma abstrata" />
-                <img id={styles.shape7} src={Shape7} alt="forma abstrata" />
-                <div className={styles.shapeGroup}>
-                    <img id={styles.shape8} src={Shape8} alt="forma abstrata" />
-                    <img id={styles.shape81} src={Shape81} alt="forma abstrata" />
-                    <img id={styles.shape82} src={Shape8} alt="forma abstrata" />
-                </div>
-                <img id={styles.shape9} src={Shape9} alt="forma abstrata" />
             </div>
 
             <Form
