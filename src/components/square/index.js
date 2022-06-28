@@ -6,17 +6,18 @@ import styles from './square.module.scss'
 
 import Logo from './opus-logo.png'
 
-const SquareComponent = ({ number = '1', isCenter = false, onClickAction = () => { }, initMark = false }) => {
+const SquareComponent = ({ number = '1', isCenter = false, onClickAction = () => { }, initMark = false, readOnly = false }) => {
     const [isClicked, setClick] = useState(initMark)
 
-    useEffect(() => { 
+    useEffect(() => {
         setClick(initMark)
     }, [initMark])
 
-    var debMark = _.debounce(() => {
+    var debMark = !readOnly ? _.debounce(() => {
         setClick(!isClicked)
         onClickAction()
     }, 50)
+        : () => { }
 
     return (
         <div className={styles.square} onClick={debMark}>

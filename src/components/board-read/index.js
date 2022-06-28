@@ -1,20 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SquareComponent from '../square'
 
-import gameService from '../../services/game/game-service';
+import FirebaseRealtimeService from '../../services/firebase/firebase-realtime-service'
 
 import styles from './board.module.scss'
 
 const BoardComponent = () => {
 
-  const Column = ({init, end}) => {
+  const monitoringRef = FirebaseRealtimeService.getRef()
+
+  const [board, setBoard] = useState(new Array(75).fill(0));
+
+  useEffect(() => {
+    readFromRealtimeFirebase()
+  }, [])
+
+  const readFromRealtimeFirebase = () => {
+    monitoringRef.on('value', async (snap) => {
+      try {
+        const board = snap.val().Board
+        setBoard(board)
+      } catch (e) {
+        console.error('Could\'t read realtime firebase. ' + e)
+      }
+    })
+  }
+
+  const Column = ({ init, end }) => {
     let cols = []
     for (var actual = init; actual <= end; actual++) {
-      cols.push(<SquareComponent key={actual} number={actual}/>);
+      let idx = actual - 1
+      cols.push(<SquareComponent key={board[idx] + '_' + actual} number={actual} initMark={board[idx] == 1} readOnly={true} />);
     }
     return cols
   }
-
 
   return (
     <div className={styles.card}>

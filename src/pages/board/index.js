@@ -1,10 +1,10 @@
 import React from 'react'
 
-import BoardComponent from '../../components/board-write'
+import BoardComponent from '../../components/board-read'
 
 import styles from './admin.module.scss'
 
-const AdminPage = () => {
+const BoardPage = () => {
 
     return (
         <div className={styles.container}>
@@ -13,4 +13,4 @@ const AdminPage = () => {
     )
 }
 
-export default AdminPage
+export default BoardPage

@@ -11,6 +11,7 @@ import HomePage from '../home'
 import GamePage from '../game'
 import AdminPage from '../admin';
 import LogoutPage from '../logout';
+import BoardPage from '../board';
 
 const AppPage = () => {
     return (
@@ -24,6 +25,9 @@ const AppPage = () => {
                 </Route>
                 <Route exact path="/admin">
                     <AdminPage />
+                </Route>
+                <Route exact path="/board">
+                    <BoardPage />
                 </Route>
                 <Route exact path="/logout">
                     <LogoutPage />

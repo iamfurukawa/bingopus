@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    background-image: url(./background.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

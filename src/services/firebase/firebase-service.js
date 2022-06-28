@@ -20,6 +20,8 @@ const FirebaseService = () => {
     token_uri: "https://oauth2.googleapis.com/token",
     auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
     client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-igfic%40bingopus-e5cd5.iam.gserviceaccount.com",
+
+    databaseURL: 'https://bingopus-e5cd5-default-rtdb.firebaseio.com/'
   }
 
   const app = () => {

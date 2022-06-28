@@ -5,21 +5,22 @@ const FirebaseFirestoreService = () => {
 
   const PESSOAS = 'pessoas'
 
+  const BOARD = 'board'
+
   const init = () => FirebaseService.app().firestore()
 
-  const save = async (cpf, data) => {
-    await init().collection(PESSOAS).doc(cpf).set(data)
+  const saveBoard = async (data) => {
+    await init().collection(BOARD).doc(BOARD).set(data)
   }
 
-  const getAll = async () => init().collection(PESSOAS).get()
-  // https://firebase.google.com/docs/firestore/query-data/queries
+  const getBoard = async () => init().collection(BOARD).doc(BOARD).get()
 
   const getByCpf = async (cpf) => init().collection(PESSOAS).doc(cpf).get()
 
   return {
-    save,
-    getAll,
     getByCpf,
+    getBoard,
+    saveBoard,
   }
 }
 
