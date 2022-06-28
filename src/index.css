@@ -24,15 +24,15 @@ body,
 
 .ant-radio-button-wrapper,
 .ant-radio-button-wrapper:hover {
-  color: #FFB72F;
-  background-color: rgba(255, 255, 255, 0.7);
+  color: rgba(31, 47, 12, .8);
+  background-color: rgba(31, 47, 12, .8);
   font-size: 1rem;
   font-weight: 500;
 }
 
 .ant-btn-primary,
 .ant-btn-primary:focus {
-  background: #FFB72F;
+  background: #677F33;
   font-size: 18px;
   font-weight: 700;
   color: #f9f5ff;
@@ -44,11 +44,11 @@ body,
 }
 
 .ant-btn-primary:hover {
-  background-color: #FF991E;
+  background-color: rgba(31, 47, 12);
 }
 
 .ant-btn-primary:active {
-  background-color: #FFBF35;
+  background-color: rgba(31, 47, 12);
 }
 
 .ant-input {
