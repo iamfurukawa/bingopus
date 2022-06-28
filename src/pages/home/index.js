@@ -47,33 +47,34 @@ const HomePage = () => {
             <div className={styles.containerLeft}>
             </div>
 
-            <Form
-                name="basic"
-                layout="vertical"
-                initialValues={{ remember: true }}
-                className={styles.containerRight}
-            >
+            <div className={styles.containerRight}>
                 <div className={styles.header}>
                     <h1>Olá</h1>
                     <h2>Bem-vindo ao bingo da Opus.</h2>
                 </div>
 
                 <Form
-                layout={null}
+                    layout={null}
+                    onKeyPress={(e) => {
+                        e.preventDefault()
+                        if (e.key === "Enter") {
+                            play();
+                        }
+                    }}
                 >
                     <Form.Item
                         name="cpf"
                         label={<label className={styles.label}>CPF</label>}
                         rules={[{ required: true, message: 'Por favor preencha com o seu CPF!' }]}
                     >
-                        <MaskedInput mask="111.111.111-11" inputmode="numeric" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
+                        <MaskedInput mask="111.111.111-11" inputMode="numeric" name="card" size="20" onChange={(e) => setCpfData(e.target.value)} />
                     </Form.Item >
                 </Form>
 
                 <Button type="primary" htmlType="submit" onClick={play}>
                     Entrar
                 </Button>
-            </Form>
+            </div>
         </div>
     )
 }
