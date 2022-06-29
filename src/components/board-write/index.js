@@ -19,13 +19,15 @@ const BoardComponent = () => {
   useEffect(() => {
     readFromRealtimeFirebase()
     const password = window.prompt("Senha", "")
-    if (password == null || password == "" || md5(password) !== `18a9357235c1a6ab89f8154d98777b0f`) {
+    if (password === null || password === "" || md5(password) !== `18a9357235c1a6ab89f8154d98777b0f`) {
       history.push('/')
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const updateBoard = (idx) => {
-    board[idx] = board[idx] == 0 ? 1 : 0
+    board[idx] = board[idx] === 0 ? 1 : 0
     setBoard(board)
     FirebaseRealtimeService.updateBoard(board)
   }
@@ -50,7 +52,7 @@ const BoardComponent = () => {
     let cols = []
     for (var actual = init; actual <= end; actual++) {
       let idx = actual - 1
-      cols.push(<SquareComponent key={board[idx] + '_' + actual} onClickAction={() => updateBoard(idx)} number={actual} initMark={board[idx] == 1} />);
+      cols.push(<SquareComponent key={board[idx] + '_' + actual} onClickAction={() => updateBoard(idx)} number={actual} initMark={board[idx] === 1} />);
     }
     return cols
   }

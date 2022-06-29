@@ -23,6 +23,7 @@ const HomePage = () => {
     const play = async () => {
         message.loading({ content: 'Logando...', key });
         try {
+            // eslint-disable-next-line
             let cpf = cpfData.replace(/\./g, '').replace(/\-/g, '')
             let snap = await firebaseFirestoreService.getByCpf(cpf)
 

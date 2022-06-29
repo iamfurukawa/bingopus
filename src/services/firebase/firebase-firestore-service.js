@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import firebase from 'firebase'
 import FirebaseService from './firebase-service'
 

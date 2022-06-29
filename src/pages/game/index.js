@@ -5,14 +5,13 @@ import { Radio } from 'antd';
 import BingoCardComponent from '../../components/bingo-card'
 
 import localStorageService from '../../services/local-storage/local-storage-service'
-import VersionService from '../../services/version/version-service'
 
 import styles from './game.module.scss'
 import versionService from '../../services/version/version-service';
 
 const GamePage = () => {
     versionService.frontValidation()
-    
+
     const history = useHistory()
     const peopleStored = localStorageService.getPeople()
 
@@ -21,6 +20,7 @@ const GamePage = () => {
 
     useEffect(() => {
         setPeople(peopleStored)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (peopleStored === null) history.push("/login")

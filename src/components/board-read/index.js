@@ -13,6 +13,7 @@ const BoardComponent = () => {
 
   useEffect(() => {
     readFromRealtimeFirebase()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const readFromRealtimeFirebase = () => {
@@ -30,7 +31,7 @@ const BoardComponent = () => {
     let cols = []
     for (var actual = init; actual <= end; actual++) {
       let idx = actual - 1
-      cols.push(<SquareComponent key={board[idx] + '_' + actual} number={actual} initMark={board[idx] == 1} readOnly={true} />);
+      cols.push(<SquareComponent key={board[idx] + '_' + actual} number={actual} initMark={board[idx] === 1} readOnly={true} />);
     }
     return cols
   }
