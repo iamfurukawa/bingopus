@@ -6,6 +6,7 @@ const VersionService = () => {
         try {
             return process.env.VITE_VERCEL_GIT_COMMIT_SHA
         } catch (e) {
+            console.error(e)
             return 'development'
         }
     }
