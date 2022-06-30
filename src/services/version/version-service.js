@@ -4,7 +4,7 @@ const VersionService = () => {
 
     const getFrontVersion = () => {
         try {
-            return process.env.VITE_VERCEL_GIT_COMMIT_SHA
+            return import.meta.env.VITE_VERCEL_GIT_COMMIT_SHA
         } catch (e) {
             console.error(e)
             return 'development'
