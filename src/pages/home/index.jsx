@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import MaskedInput from 'antd-mask-input'
 import { Button, Form, message } from 'antd'
+import { MD5 } from "md5-js-tools"
 
 import localStorageService from '../../services/local-storage/local-storage-service'
 import firebaseFirestoreService from '../../services/firebase/firebase-firestore-service'
@@ -9,8 +10,6 @@ import firebaseFirestoreService from '../../services/firebase/firebase-firestore
 import styles from './home.module.scss'
 
 import versionService from '../../services/version/version-service'
-
-var md5 = require('md5')
 
 const HomePage = () => {
 
@@ -28,7 +27,7 @@ const HomePage = () => {
             let snap = await firebaseFirestoreService.getByCpf(cpf)
 
             localStorageService.savePeople({
-                cpf: md5(snap.id),
+                cpf: MD5.generate(snap.id),
                 name: snap.data().nome,
                 games: snap.data().games,
             })

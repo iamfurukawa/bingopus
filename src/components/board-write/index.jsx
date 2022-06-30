@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Button } from 'antd'
+import { MD5 } from "md5-js-tools"
 
 import SquareComponent from '../square'
 
 import FirebaseRealtimeService from '../../services/firebase/firebase-realtime-service'
 
 import styles from './board.module.scss'
-import { Button } from 'antd'
 
-var md5 = require('md5')
 
 const BoardComponent = () => {
   const history = useHistory()
@@ -19,7 +19,7 @@ const BoardComponent = () => {
   useEffect(() => {
     readFromRealtimeFirebase()
     const password = window.prompt("Senha", "")
-    if (password === null || password === "" || md5(password) !== `18a9357235c1a6ab89f8154d98777b0f`) {
+    if (password === null || password === "" || MD5.generate(password) !== `18a9357235c1a6ab89f8154d98777b0f`) {
       history.push('/')
     }
 

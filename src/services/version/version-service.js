@@ -3,7 +3,11 @@ import localStorageService from '../local-storage/local-storage-service'
 const VersionService = () => {
 
     const getFrontVersion = () => {
-        return process.env.REACT_APP_VERCEL_GIT_COMMIT_SHA || 'development'
+        try {
+            return process.env.VITE_VERCEL_GIT_COMMIT_SHA
+        } catch (e) {
+            return 'development'
+        }
     }
 
     const frontValidation = () => {
