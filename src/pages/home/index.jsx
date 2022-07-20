@@ -56,7 +56,6 @@ const HomePage = () => {
                 <Form
                     layout={null}
                     onKeyPress={(e) => {
-                        e.preventDefault()
                         if (e.key === "Enter") {
                             play();
                         }
