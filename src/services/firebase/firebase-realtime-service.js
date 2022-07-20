@@ -5,7 +5,7 @@ import FirebaseService from './firebase-service'
 const FirebaseRealtimeService = () => {
     const init = () => {
         try {
-            FirebaseService.app()
+            return FirebaseService.app()
         } catch (e) {
             console.error('Error at realtime firebase!')
             console.log(e)
@@ -14,7 +14,7 @@ const FirebaseRealtimeService = () => {
 
     const updateBoard = async (data) => {
         try {
-            await init().database().ref('/').update({
+            return await init().database().ref('/').update({
                 'Board': data,
             });
         } catch (e) {
