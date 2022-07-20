@@ -16,6 +16,7 @@ body,
 
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  background-color: #F6650A;
   color: white;
   font-size: 1rem;
   font-weight: 500;
@@ -24,7 +25,6 @@ body,
 .ant-radio-button-wrapper,
 .ant-radio-button-wrapper:hover {
   color: #F6650A;
-  background-color: #F6650A;
   font-size: 1rem;
   font-weight: 500;
 }

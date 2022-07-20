@@ -18,6 +18,7 @@ COL_DOCUMENT = 1
 
 #Game Parameters
 gamesByPerson = 3
+gameIdStart = 1
 
 def generateGame():
     #0, 15, 30, 45, 60
@@ -139,7 +140,7 @@ def createAllGamesFromCSV():
         for person in reader:
             if DEBUG is True:
                 print('document={}\t nome={}'.format(person[COL_DOCUMENT].replace('.', '').replace('-', ''), person[COL_NAME]))
-            for gameId in range(1, gamesByPerson + 1):
+            for gameId in range(gameIdStart, gameIdStart + gamesByPerson):
                 if DEBUG is True:
                     print('gameId={} games[{}]={}'.format(gameId, gameIdx, games[gameIdx]))
                 saveGameOnFirebase(games[gameIdx], {
