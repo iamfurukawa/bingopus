@@ -105,7 +105,7 @@ def saveGameOnFirebase(game=[], people={}, gameId='1'):
     refPessoa.set(data, merge=True)
     print('Saved! gameId={} people={} game={}'.format(gameId, people['nome'], game))
 
-def getAllOfFirebase(gameId='1'):
+def getAllOfFirebaseSorted(gameId='1'):
     refPessoa = db.collection('pessoas')
     docs = refPessoa.stream()
     games = []
@@ -114,9 +114,10 @@ def getAllOfFirebase(gameId='1'):
     return games
 
 def createSingleGame(nome, document, gameId='1'):
-    gamesUnordered = getAllOfFirebase()
+    gamesOrdered = getAllOfFirebaseSorted(gameId)
     game = generateGame()
-    eq = verifyForDuplicate(gamesUnordered, game)
+    gameSorted = sorted(game)
+    eq = verifyForDuplicate(gamesOrdered, gameSorted)
     if eq == False:
         saveGameOnFirebase(game, {
             'nome': nome,
