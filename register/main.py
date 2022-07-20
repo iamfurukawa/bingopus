@@ -5,11 +5,21 @@ from firebase_admin import firestore
 import random
 import csv
 
+# Initialize app
 cred = credentials.Certificate('./bingopus.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
+DEBUG = False
 
-def generateCard():
+#CSV Variables
+CSV_PATH = 'C:/Users/vinicius.carvalho/Downloads/cpfs-julina.csv'
+COL_NAME = 0
+COL_DOCUMENT = 1
+
+#Game Parameters
+gamesByPerson = 3
+
+def generateGame():
     #0, 15, 30, 45, 60
     one = []
     while len(one) < 5:
@@ -50,84 +60,100 @@ def generateCard():
 
     return one + two + three + four + five
 
+def retrieveRowCountFromCSV():
+    rowCount = 0
+    for _ in open(CSV_PATH):
+        rowCount += 1
+    return rowCount
+
 def verifyForDuplicate(games, gameNew):
-    eq = False
-    for g in games:
-        if(gameNew == g):
-            eq = True
-    return eq
+    for game in games:
+        if(gameNew == game):
+            return True
+    return False
 
-def generateMultipleGames(number=500):
-    games = []
+def generateMultipleGames(number=10):
+    gamesOrdered = []
     gamesUnordered = []
+
+    print('Generating {} games...'.format(number))
     for _ in range(0, number):
-        game = generateCard()
+        game = generateGame()
         gameSorted = sorted(game)
-        eq = verifyForDuplicate(games, gameSorted)
+        eq = verifyForDuplicate(gamesOrdered, gameSorted)
         if eq == False:
-            # print(game)
-            # print(gameSorted)
             gamesUnordered.append(game)
-            games.append(gameSorted)
+            gamesOrdered.append(gameSorted)
         else:
-            print('Game duplicated!')
+            print('Game duplicated found!')
 
-    return games, gamesUnordered
+    print('{} games generated!'.format(number))
+    return gamesUnordered
 
-def newSingleGame(nome, document):
-    games = getAllOfFirebase()
-    game = generateCard()
-    gameSorted = sorted(game)
-    eq = verifyForDuplicate(games, gameSorted)
-    if eq == False:
-        saveGameOnFirebase(game, {
-            'nome': nome,
-            'document': document
-        })
-        print('saved!')
+def saveGameOnFirebase(game=[], people={}, gameId='1'):
+    if DEBUG is True:
         return
-    else:
-        print('Game duplicated!')
-
-def saveGameOnFirebase(games=[], people={}):
+        
     refPessoa = db.collection('pessoas').document(people['document'])
     data = {
         'nome': people['nome'],
         'games': {
-            '1': games,
+            str(gameId): game,
         },
     }
     refPessoa.set(data, merge=True)
+    print('Saved! gameId={} people={} game={}'.format(gameId, people['nome'], game))
 
-def getAllOfFirebase():
+def getAllOfFirebase(gameId='1'):
     refPessoa = db.collection('pessoas')
     docs = refPessoa.stream()
     games = []
     for doc in docs:
-        games.append(sorted(doc.to_dict()['games']['1']))
+        games.append(sorted(doc.to_dict()['games'][str(gameId)]))
     return games
 
-def createData():
-    _, gamesUnordered = generateMultipleGames()
+def createSingleGame(nome, document, gameId='1'):
+    gamesUnordered = getAllOfFirebase()
+    game = generateGame()
+    eq = verifyForDuplicate(gamesUnordered, game)
+    if eq == False:
+        saveGameOnFirebase(game, {
+            'nome': nome,
+            'document': document
+        }, gameId)
+        return
+    else:
+        print('Game duplicated!')
 
-    with open('C:/Users/vinicius.carvalho/Downloads/cpfs.csv', newline='\n', encoding='utf-8') as csvfile:
+def createAllGamesFromCSV():
+    qtyPeople = retrieveRowCountFromCSV()
+    print('Generating {} games for {} people, total {} games...'.format(gamesByPerson, qtyPeople, gamesByPerson * qtyPeople))
+    games = generateMultipleGames(gamesByPerson * qtyPeople)
+    gameIdx = 0
+
+    if DEBUG is True:
+        input('Press ENTER to continue...')
+
+    with open(CSV_PATH, newline='\n', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
-        for idx, row in enumerate(reader):
-            saveGameOnFirebase(gamesUnordered[idx], {
-                'nome': row[0],
-                'document': row[2]
-            })
-            print('{} - {} - {} - {}'.format(row[0], row[1], row[2], gamesUnordered[idx]))
+        for person in reader:
+            if DEBUG is True:
+                print('document={}\t nome={}'.format(person[COL_DOCUMENT].replace('.', '').replace('-', ''), person[COL_NAME]))
+            for gameId in range(1, gamesByPerson + 1):
+                if DEBUG is True:
+                    print('gameId={} games[{}]={}'.format(gameId, gameIdx, games[gameIdx]))
+                saveGameOnFirebase(games[gameIdx], {
+                    'nome': person[COL_NAME],
+                    'document': person[COL_DOCUMENT].replace('.', '').replace('-', '')
+                }, gameId)
+                gameIdx += 1
 
-# Create all data based on csv file that contains 3 columns separated with ;
-# The csv file contains the format: Name;Email;CPF(without pontuaction)
-# The function create just one game, to generate another one you must change the games dict in saveGameOnFirebase().
-# This function validade if the game is repeated.
-#createData()
+# Create all data based on csv file, IGNORING HEADER!!!
+# This function validade if the game is repeated. Considering ordered.
+#createAllGamesFromCSV()
 
-# Create data using a name and CPF(without pontuaction)
-# The function create just one game, to generate another one you must change the games dict in saveGameOnFirebase().
-# If you need create a specific game (1, 2, 3...) you need change getAllOfFirebase index too.
-# This function validade if the game is repeated.
-#newSingleGame('fulano', '123456789')
+# Create data using a name, CPF(without pontuaction) and gameId
+# The function create just one game.
+# This function validade if the game is repeated. Considering unordered!
+#createSingleGame('fulano', '123456789', '1')
 

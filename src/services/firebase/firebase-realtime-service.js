@@ -3,16 +3,33 @@ import firebase from 'firebase'
 import FirebaseService from './firebase-service'
 
 const FirebaseRealtimeService = () => {
-    const init = () => FirebaseService.app()
+    const init = () => {
+        try {
+            FirebaseService.app()
+        } catch (e) {
+            console.error('Error at realtime firebase!')
+            console.log(e)
+        }
+    }
 
     const updateBoard = async (data) => {
-        await init().database().ref('/').update({
-            'Board': data,
-        });
+        try {
+            await init().database().ref('/').update({
+                'Board': data,
+            });
+        } catch (e) {
+            console.error('Error at realtime firebase!')
+            console.log(e)
+        }
     };
 
     const getRef = () => {
-        return init().database().ref('/')
+        try {
+            return init().database().ref('/')
+        } catch (e) {
+            console.error('Error at realtime firebase!')
+            console.log(e)
+        }
     }
 
     return {
