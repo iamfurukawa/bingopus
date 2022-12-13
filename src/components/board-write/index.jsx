@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Button } from 'antd'
+import Modal from 'react-modal';
+import CageGiveAway from './modal';
+
 import { MD5 } from "md5-js-tools"
 
 import SquareComponent from '../square'
@@ -15,6 +18,7 @@ const BoardComponent = () => {
   const monitoringRef = FirebaseRealtimeService.getRef()
 
   const [board, setBoard] = useState(new Array(75).fill(0));
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     readFromRealtimeFirebase()
@@ -57,8 +61,27 @@ const BoardComponent = () => {
     return cols
   }
 
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
+      <Button type="danger" onClick={showModal}>
+        Sortear Número
+      </Button>
+
+      <Modal
+        contentLabel="Basic Modal"
+        isOpen={isModalOpen}
+        onRequestClose={handleOk}>
+        <CageGiveAway numbers={board} updateBoard={updateBoard} closeModal={handleOk}/>
+      </Modal>
+
       <div className={styles.card}>
         <div className={styles.container}>
 
