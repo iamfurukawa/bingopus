@@ -16,7 +16,7 @@ body,
 
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-  background-color: #5B4270;
+  background-color: #338A1D;
   color: white;
   font-size: 1rem;
   font-weight: 500;
@@ -24,14 +24,14 @@ body,
 
 .ant-radio-button-wrapper,
 .ant-radio-button-wrapper:hover {
-  color: #7C6196;
+  color: #338A1D;
   font-size: 1rem;
   font-weight: 500;
 }
 
 .ant-btn-primary,
 .ant-btn-primary:focus {
-  background: #7C6196;
+  background: #D22449;
   font-size: 18px;
   font-weight: 700;
   color: #f9f5ff;
@@ -43,30 +43,29 @@ body,
 }
 
 .ant-btn-primary:hover {
-  background-color: #5B4270;
+  background-color: #D22449;
 }
 
 .ant-btn-primary:active {
-  background-color: #5B4270;
+  background-color: #D22449;
 }
 
 .ant-input {
-  border: 1px solid #404f5d;
-  color: #404f5d;
+  border: 1px solid #F8B62A;
   border-radius: 0.8rem;
   font-size: 1.2rem;
   line-height: 2.4rem;
   font-weight: 500;
-  outline-color: #7C6196;
+  outline-color: #F8B62A;
 }
 
 .ant-input:focus {
-  border: 1px solid #7C6196;
+  border: 1px solid #F8B62A;
 }
 
 .ant-form-item-label {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 2.4rem;
-  color: #7C6196;
+  color: #F8B62A;
 }

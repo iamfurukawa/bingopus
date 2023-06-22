@@ -63,7 +63,7 @@ def generateGame():
 
 def retrieveRowCountFromCSV():
     rowCount = 0
-    for _ in open(CSV_PATH):
+    for _ in open(CSV_PATH, encoding='utf8'):
         rowCount += 1
     return rowCount
 
