@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "./shared/colors.scss";
 
 * {
   box-sizing: border-box !important;
@@ -16,7 +17,7 @@ body,
 
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled),
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-  background-color: #338A1D;
+  background-color: $menu;
   color: white;
   font-size: 1rem;
   font-weight: 500;
@@ -24,14 +25,14 @@ body,
 
 .ant-radio-button-wrapper,
 .ant-radio-button-wrapper:hover {
-  color: #338A1D;
+  color: $menu;
   font-size: 1rem;
   font-weight: 500;
 }
 
 .ant-btn-primary,
 .ant-btn-primary:focus {
-  background: #D22449;
+  background: $btn-login-focus;
   font-size: 18px;
   font-weight: 700;
   color: #f9f5ff;
@@ -43,29 +44,29 @@ body,
 }
 
 .ant-btn-primary:hover {
-  background-color: #D22449;
+  background-color: $btn-login-hover;
 }
 
 .ant-btn-primary:active {
-  background-color: #D22449;
+  background-color: $btn-login-active;
 }
 
 .ant-input {
-  border: 1px solid #F8B62A;
+  border: 1px solid $input-login-border;
   border-radius: 0.8rem;
   font-size: 1.2rem;
   line-height: 2.4rem;
   font-weight: 500;
-  outline-color: #F8B62A;
+  outline-color: $input-login-border;
 }
 
 .ant-input:focus {
-  border: 1px solid #F8B62A;
+  border: 1px solid $input-login-border;
 }
 
 .ant-form-item-label {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 2.4rem;
-  color: #F8B62A;
+  color: $input-login-border;
 }

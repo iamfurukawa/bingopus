@@ -6,7 +6,7 @@ import {
 
 import AppPage from './pages/app';
 import 'antd/dist/antd.css';
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>

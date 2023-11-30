@@ -1,8 +1,10 @@
+@import "../../shared/colors.scss";
+
 .card {
   display: flex;
   flex-direction: column;
 
-  background-color: #338A1D;
+  background-color: $board;
 
   width: 100%;
   height: 100%;
