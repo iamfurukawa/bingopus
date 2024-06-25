@@ -24,6 +24,12 @@
 
         .padding {
             padding: 15px;
+
+            .wrap {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     }
 }

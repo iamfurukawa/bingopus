@@ -31,7 +31,7 @@ const GamePage = () => {
                 <div className={styles.content}>
                     <div className={styles.container}>
                         <div className={styles.padding}>
-                            <Radio.Group defaultValue="1" buttonStyle="outlined" onChange={(e) => setGameSelected(e.target.value)}>
+                            <Radio.Group className={styles.wrap} defaultValue="1" buttonStyle="outlined" onChange={(e) => setGameSelected(e.target.value)}>
                                 {Object.keys(people.games).map((v) => <Radio.Button value={v}>{`Jogo ` + (v)}</Radio.Button>)}
                             </Radio.Group>
                         </div>
